@@ -65,7 +65,7 @@ class _BmiScreenState extends State<BmiScreen> {
               onPressed: toggleMeasure,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(32.0),
               child: TextField(
                   controller: txtHeight,
                   keyboardType: TextInputType.number,
@@ -74,7 +74,7 @@ class _BmiScreenState extends State<BmiScreen> {
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(32.0),
               child: TextField(
                   controller: txtWeight,
                   keyboardType: TextInputType.number,
