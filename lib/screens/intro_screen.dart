@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hello_world/shared/menu_drawer.dart';
+import '../shared/menu_bottom.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -12,6 +13,7 @@ class IntroScreen extends StatelessWidget {
         title: const Text("hello world"),
       ),
       drawer: MenuDrawer(),
+      bottomNavigationBar: MenuBottom(),
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -40,36 +42,6 @@ class IntroScreen extends StatelessWidget {
                   ),
                 ))),
       ),
-      bottomNavigationBar: MenuBottom(),
     ));
-  }
-}
-
-class MenuBottom extends StatelessWidget {
-  const MenuBottom({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      onTap: (int index) {
-        switch (index) {
-          case 0:
-            Navigator.of(context).pop();
-            Navigator.pushNamed(context, '/');
-            break;
-          case 1:
-            //Navigator.of(context).pop();
-            Navigator.pushNamed(context, "/bmi");
-            break;
-          default:
-        }
-      },
-      items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.monitor_weight), label: 'BMI')
-      ],
-    );
   }
 }

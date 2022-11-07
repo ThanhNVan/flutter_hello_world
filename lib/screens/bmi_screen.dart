@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hello_world/shared/menu_drawer.dart';
+import '../shared/menu_bottom.dart';
 
 class BmiScreen extends StatelessWidget {
   const BmiScreen({super.key});
@@ -13,6 +14,7 @@ class BmiScreen extends StatelessWidget {
         ),
       ),
       drawer: MenuDrawer(),
+      bottomNavigationBar: MenuBottom(),
       body: Center(
         child: FlutterLogo(),
       ),

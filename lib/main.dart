@@ -14,12 +14,10 @@ class myApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.blueGrey),
       routes: {
-        '/' :(context) => IntroScreen(),
-        '/bmi':(context) => BmiScreen(),
-
+        '/': (context) => IntroScreen(),
+        '/bmi': (context) => BmiScreen()
       },
       initialRoute: "/",
-      
     );
   }
 }
