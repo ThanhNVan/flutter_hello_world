@@ -11,12 +11,12 @@ class MenuBottom extends StatelessWidget {
       onTap: (int index) {
         switch (index) {
           case 0:
-            Navigator.of(context).pop();
+            //Navigator.of(context).pop();
             Navigator.pushNamed(context, '/');
             break;
           case 1:
-            Navigator.of(context).pop();
-            Navigator.pushNamed(context, '/bmi');
+            //Navigator.of(context).pop();
+            Navigator.of(context, rootNavigator: true).pushNamed("/bmi");
             break;
           default:
         }
