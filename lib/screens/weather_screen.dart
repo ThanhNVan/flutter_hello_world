@@ -16,6 +16,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teal[50],
       appBar: AppBar(title: Text('Weather')),
       body: Padding(
         padding: EdgeInsets.all(16),

@@ -17,7 +17,7 @@ class IntroScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: const AssetImage("images/wjbu.png"),
+          image: const AssetImage("images/wallpaper.jpg"),
           fit: BoxFit.cover,
         )),
         child: Center(

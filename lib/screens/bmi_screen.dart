@@ -40,6 +40,7 @@ class _BmiScreenState extends State<BmiScreen> {
         'Please Enter Your Weight in ' + (isMetric ? 'kilogram' : 'pounds');
 
     return Scaffold(
+      backgroundColor: Colors.teal[50],
       appBar: AppBar(
         title: Text(
           'BMI Calculator',

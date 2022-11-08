@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hello_world/screens/session_screen.dart';
 import 'package:flutter_hello_world/screens/weather_screen.dart';
 import '../screens/bmi_screen.dart';
 import '../screens/intro_screen.dart';
@@ -53,6 +54,9 @@ class MenuDrawer extends StatelessWidget {
                   break;
                 case 'Weather':
                   screen = WeatherScreen();
+                  break;
+                case 'Training':
+                  screen = SessionScreen();
                   break;
                 default:
               }
