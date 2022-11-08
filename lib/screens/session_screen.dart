@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../data/sp_helper.dart';
 import '../data/session.dart';
@@ -30,7 +29,10 @@ class _SessionScreenState extends State<SessionScreen> {
     return Scaffold(
       backgroundColor: Colors.teal[50],
       appBar: AppBar(
-        title: Text('Your Training Sessions'),
+        title: Text(
+          'Your Training Sessions',
+          textAlign: TextAlign.center,
+        ),
       ),
       body: ListView(
         children: getContent(),
@@ -88,11 +90,14 @@ class _SessionScreenState extends State<SessionScreen> {
   Future saveSession() async {
     DateTime now = DateTime.now();
     String today = '${now.year} - ${now.month} - ${now.day}';
-
+    int id = helper.getCounter() + 1;
     Session newSession = Session(
-        1, today, txtDescription.text, int.tryParse(txtDuration.text) ?? 0);
+        id, today, txtDescription.text, int.tryParse(txtDuration.text) ?? 0);
 
-    helper.writeSession(newSession);
+    helper.writeSession(newSession).then((_) {
+      this.updateScreen();
+      helper.setCounter();
+    });
     txtDescription.text = '';
     txtDuration.text = '';
 
@@ -102,10 +107,16 @@ class _SessionScreenState extends State<SessionScreen> {
   List<Widget> getContent() {
     List<Widget> titles = [];
     sessions.forEach((session) {
-      titles.add(ListTile(
-        title: Text(session.description),
-        subtitle:
-            Text('${session.date} - Duration: ${session.duration} minute(s)'),
+      titles.add(Dismissible(
+        key: UniqueKey(),
+        onDismissed: (_) {
+          helper.removeSession(session.id);
+        },
+        child: ListTile(
+          title: Text(session.description),
+          subtitle:
+              Text('${session.date} - Duration: ${session.duration} minute(s)'),
+        ),
       ));
     });
     return titles;
